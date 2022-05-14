@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBaseConnect", "DataBaseConnect.csproj", "{57F25D66-1E3E-4719-9F1A-A89E0932ECC4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PythonOrderXml2RevitResultXml", "..\PythonOrderXml2RevitResultXml\PythonOrderXml2RevitResultXml.csproj", "{51B59143-BC49-4BB6-923C-F516D1C5618C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RevitDataXml2RevitOrderXml", "..\RevitDataXml2RevitOrderXml\RevitDataXml2RevitOrderXml.csproj", "{409F9C2B-6436-4432-9AFA-1656B2DC4DBF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57F25D66-1E3E-4719-9F1A-A89E0932ECC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57F25D66-1E3E-4719-9F1A-A89E0932ECC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57F25D66-1E3E-4719-9F1A-A89E0932ECC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57F25D66-1E3E-4719-9F1A-A89E0932ECC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51B59143-BC49-4BB6-923C-F516D1C5618C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51B59143-BC49-4BB6-923C-F516D1C5618C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51B59143-BC49-4BB6-923C-F516D1C5618C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51B59143-BC49-4BB6-923C-F516D1C5618C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{409F9C2B-6436-4432-9AFA-1656B2DC4DBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{409F9C2B-6436-4432-9AFA-1656B2DC4DBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{409F9C2B-6436-4432-9AFA-1656B2DC4DBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{409F9C2B-6436-4432-9AFA-1656B2DC4DBF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E855156B-ECC9-497C-9A31-647F18CF15A3}
+	EndGlobalSection
+EndGlobal
