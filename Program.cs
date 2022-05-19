@@ -8,6 +8,9 @@ namespace DataBaseConnect
 {
     class Program
     {
+        //载入选项
+        static string CreateOptionsPath = Path.Combine(Directory.GetCurrentDirectory(), "CreateOptions.txt");
+
         //文件路径
         //连接数据库
         //连接的表名
@@ -34,19 +37,68 @@ namespace DataBaseConnect
             //Console.WriteLine($"{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}");
             //return;
 
+            //显式调用,保存
             if (args.Length >= 4) 
             {
+                Console.WriteLine("显式输入参数启动程序.");
                 //自定义
                 rootPath = args[0];
                 constructorString = args[1];
                 tableName = args[2];
                 databaseName = args[3];
+
+                using (FileStream fileStream = new FileStream(CreateOptionsPath, FileMode.Create, FileAccess.Write))
+                {
+                    StreamWriter streamWriter = new StreamWriter(fileStream);
+                    streamWriter.WriteLine(rootPath);
+                    streamWriter.WriteLine(constructorString);
+                    streamWriter.WriteLine(tableName);
+                    streamWriter.WriteLine(databaseName);
+                    streamWriter.Close();
+                    fileStream.Close();
+                }
             }
+            //输入错误,提示
             else if (args.Length > 0) 
             {
                 Console.WriteLine($"参数不足4个 不启动程序.");
-                Console.WriteLine($"默认参数: \"{rootPath}\" \"{constructorString}\" \"{tableName}\" \"{databaseName}\"");
+                Console.WriteLine($"默认参数格式: \"{rootPath}\" \"{constructorString}\" \"{tableName}\" \"{databaseName}\"");
+                Console.WriteLine($"显示输入参数后,会生成CreateOptions.txt保存参数,下次可以不再输入参数.");
                 return;
+            }
+            //直接使用(隐式调用),调用存档
+            else 
+            {
+                Console.WriteLine("直接启动程序.");
+                if (File.Exists(CreateOptionsPath))
+                {
+                    Console.WriteLine("使用存档的参数.");
+                    using (FileStream fileStream = new FileStream(CreateOptionsPath, FileMode.Open, FileAccess.Read))
+                    {
+                        StreamReader streamReader = new StreamReader(fileStream);
+                        rootPath = streamReader.ReadLine();//存档
+                        constructorString = streamReader.ReadLine(); //存档
+                        tableName = streamReader.ReadLine();  //存档
+                        databaseName = streamReader.ReadLine();  //存档
+                        streamReader.Close();
+                        fileStream.Close();
+                    }
+                }
+                //存档无了,用默认数据并存档
+                else 
+                {
+                    Console.WriteLine("使用默认参数.");
+                    using (FileStream fileStream = new FileStream(CreateOptionsPath, FileMode.Create, FileAccess.Write))
+                    {
+                        StreamWriter streamWriter = new StreamWriter(fileStream);
+                        streamWriter.WriteLine(rootPath);
+                        streamWriter.WriteLine(constructorString);
+                        streamWriter.WriteLine(tableName);
+                        streamWriter.WriteLine(databaseName);
+                        streamWriter.Close();
+                        fileStream.Close();
+                    }
+                }
             }
 
             //D2OMain();
